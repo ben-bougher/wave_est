@@ -23,14 +23,14 @@ for infile, outfile in zip(modelFiles, outputFiles):
 Flow("seismic", "Kirchhoff_PreSTM_time.segy",
      ''' segyread tape=$SOURCE
 tfile=/dev/null hfile=/dev/null bfile=/dev/null | put
-d1=0.002 d2=6.25 o1=0 o2=0 label1=TWT label2=Distance
+d1=0.004 d2=6.25 o1=0 o2=0 label1=TWT label2=Distance
 unit1=s unit2=m | window min2=4000 n2=1''')
 
 # Convert vp, vs, rho into time and extract a well log
 for f in outputFiles:
     logfile = 'log_' + f
     Flow(logfile, f,
-         '''depth2time velocity=vp.rsf dt=0.002 |
+         '''depth2time velocity=vp.rsf dt=0.004 |
     window min2=4000 n2=1''')
 
 Flow(["rpp.npy", "seismic.npy"],
