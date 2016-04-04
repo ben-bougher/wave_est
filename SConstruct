@@ -27,7 +27,7 @@ d1=0.002 d2=6.25 o1=0 o2=0 label1=TWT label2=Distance
 unit1=s unit2=m | window min2=4000 n2=1''')
 
 twt_vp = 'vp_twt'
-Flow(twt_vp, 'vp', 'scale rscale=.5')
+Flow(twt_vp, 'vp', 'scale rscale=2')
 
 # Convert vp, vs, rho into time and extract a well log
 for f in outputFiles:
