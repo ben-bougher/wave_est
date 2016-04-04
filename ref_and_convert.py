@@ -21,10 +21,12 @@ if __name__ == "__main__":
     vp, vs, rho = [readrsf(f) for f in sys.argv[1:4]]
     vp2, vs2, rho2 = [np.roll(d, 1) for d in (vp, vs, rho)]
 
+    seismic = readrsf('seismic.rsf')
+    
     theta = 0
-    rpp = zoep_rpp(vp2, vs2, rho2, vp, vs, rho, theta)
+    rpp = np.nan_to_num(zoep_rpp(vp2, vs2, rho2, vp, vs, rho, theta))[:seismic.size]
 
     np.save(sys.argv[4], rpp)
 
     # save seismic as numpy array
-    np.save(sys.argv[5], readrsf('seismic.rsf'))
+    np.save(sys.argv[5], seismic)

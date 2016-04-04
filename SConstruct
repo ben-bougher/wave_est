@@ -34,8 +34,8 @@ for f in outputFiles:
     window min2=4000 n2=1''')
 
 Flow(["rpp.npy", "seismic.npy"],
-     ["log_vp.rsf", "log_vs.rsf", "log_density.rsf"],
-     "python ref_and_convert.py ${SOURCES} ${TARGETS}" ,
+     ["ref_and_convert.py", "log_vp.rsf", "log_vs.rsf", "log_density.rsf"],
+     "python ${SOURCES[0]} ${SOURCES[1:]} ${TARGETS}" ,
      stdin=0, stdout=-1)
 
 
