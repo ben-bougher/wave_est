@@ -20,7 +20,7 @@ for infile, outfile in zip(modelFiles, outputFiles):
 
 
 # Convert stack data to rsf, extract a trace at 4000
-Flow("seismic", "Kirchhoff_PreSTM_time.segy",
+Flow("seismic", "NMOstack_SRME.segy",
      ''' segyread tape=$SOURCE
 tfile=/dev/null hfile=/dev/null bfile=/dev/null | put
 d1=0.002 d2=6.25 o1=0 o2=0 label1=TWT label2=Distance
